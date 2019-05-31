@@ -28,11 +28,12 @@ Once the above are installed, try the following in your terminal.
 ```
 robot --version
 ```
-If you see something similar to the following, we are ready.  :raised_hands: :raised_hands: :raised_hands:
+If you see something similar to the following, we are almost ready.  :raised_hands: :raised_hands: :raised_hands:
 ```
 Robot Framework 3.0.3 (Python 2.7.3 on darwin)
 ```
 
+The last step would be defining a CARTA URL in resource.robot (default it is ASIAA CARTA demo server).
 
 ## How to run tests
 * To run all tests in a test suite (which is a folder containing different tests (.robot file)):
