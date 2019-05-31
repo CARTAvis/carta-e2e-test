@@ -37,7 +37,7 @@ Robot Framework 3.0.3 (Python 2.7.3 on darwin)
   robot feature_test
   ```
   Note that the order is alphabetical based on the file name of the test scripts. Critical tests that must be run first have been named as "A01_xxx.robot", "A02_yyy.robot", etc.
-* To run a specific test (e.g, feature_test/image_zoom_pan.robot):
+* To run all test cases of a specific test (e.g, feature_test/image_zoom_pan.robot):
   ```
   robot feature_test/image_zoom_pan.robot
   ```
