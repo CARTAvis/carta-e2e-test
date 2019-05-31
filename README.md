@@ -25,7 +25,7 @@ Once the above are installed, try the following in your terminal.
 ```
 robot --version
 ```
-If you see something similar to the following, we are ready. :raised_hands:
+If you see something similar to the following, we are ready.  :raised_hands: :raised_hands: :raised_hands:
 ```
 Robot Framework 3.0.3 (Python 2.7.3 on darwin)
 ```
