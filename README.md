@@ -8,7 +8,10 @@ The **utilities** folder contains tools for diagnostics (e.g., pngDiff.py which 
 After running tests, report and log can be found in report.html and log.html, respectively. They are located at the same path where test was run from.
 
 ## Test environment setup
-Before running end-to-end test, we need to make sure robot framework and seleniumlibrary are installed.
+Before running end-to-end test, we need to make sure robot framework, seleniumlibrary, and webdrivers are installed.
+
+To install Chrome webdriver, please follow the [instruction](http://chromedriver.chromium.org).
+
 To install robot framework:
 ```
 pip install robotframework
