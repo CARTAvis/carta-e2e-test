@@ -15,7 +15,8 @@ ${BROWSER}        Chrome
 ${DELAY}          0.2
 ${LOGIN URL}      http://${SERVER}/
 ${index}
-
+${WINDOW_SIZE_X}    1280
+${WINDOW_SIZE_Y}    800
 
 ${GUI_ELEMENT_File}         xpath://*[@id="root"]/div/div[1]/span[1]/span/ul/li/a/div
 ${GUI_ELEMENT_OpenImage}    xpath:/html/body/div[5]/div/div/div/div/ul/li[1]/a
@@ -106,8 +107,9 @@ ${GUI_ELEMENT_RenderConfigSetting_StylePoint}    xpath://*[@id="root"]/div/div[9
 *** Keywords ***
 Open Browser To CARTA Frontend
     Open Browser    ${LOGIN URL}    ${BROWSER}
-    Set Window Position    50    50
-    Set Window Size    1920    1200
+    Set Window Position    30    30
+    Set Window Size    ${WINDOW_SIZE_X}    ${WINDOW_SIZE_Y}
+    Reload Page
     Set Selenium Speed    ${DELAY}
       
 
@@ -158,8 +160,9 @@ Enable Authentication With Unknown API Key
 
 Initialize CARTA For Testing
     Open Browser    ${LOGIN URL}    ${BROWSER}
-    Set Window Position    50    50
-    Set Window Size    1920    1200
+    Set Window Position    30    30
+    Set Window Size    ${WINDOW_SIZE_X}    ${WINDOW_SIZE_Y}
+    Reload Page
     Set Selenium Speed    ${DELAY}
     Element Should Be Visible    ${GUI_ELEMENT_File}
     Wait Until Element Contains    ${GUI_ELEMENT_ViewerInit}    No file loaded    timeout=1
@@ -167,8 +170,9 @@ Initialize CARTA For Testing
     
 Initialize CARTA With File Browser For Testing
     Open Browser    ${LOGIN URL}    ${BROWSER}
-    Set Window Position    50    50
-    Set Window Size    1920    1200
+    Set Window Position    30    30
+    Set Window Size    ${WINDOW_SIZE_X}    ${WINDOW_SIZE_Y}
+    Reload Page
     Set Selenium Speed    ${DELAY}
     Wait Until Element Contains    ${GUI_ELEMENT_ViewerInit}    No file loaded    timeout=1
     Element Should Be Enabled    ${GUI_ELEMENT_File}
@@ -181,8 +185,9 @@ Initialize CARTA With File Browser For Testing
 Initialize CARTA With An Image For Testing
     [arguments]    ${testImage}    ${renderingTimeout}
     Open Browser    ${LOGIN URL}    ${BROWSER}
-    Set Window Position    50    50
-    Set Window Size    1920    1200
+    Set Window Position    30    30
+    Set Window Size    ${WINDOW_SIZE_X}    ${WINDOW_SIZE_Y}
+    Reload Page
     Set Selenium Speed    ${DELAY}
     Wait Until Element Contains    ${GUI_ELEMENT_ViewerInit}    No file loaded    timeout=1
     Element Should Be Enabled    ${GUI_ELEMENT_File}
