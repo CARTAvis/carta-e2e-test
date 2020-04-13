@@ -1,8 +1,8 @@
 *** Settings ***
-Documentation     A test suite with a single test for valid login.
+Documentation     A prototype test with integration of psrecord
 ...
-...               This test has a workflow that is created using keywords in
-...               the imported resource file.
+...               This test loads an image and calls psrecord to 
+...               monitor ram and cpu usages.
 Resource          resource.robot
 
 *** Test Cases ***

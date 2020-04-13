@@ -8,11 +8,22 @@ Library           SeleniumLibrary
 Library           Process
 
 *** Variables ***
-${SERVER}         octopus:2000/?socketUrl=ws://octopus:3000
+${SERVER}         octopus.local:2000/?socketUrl=ws://octopus.local:3000
 ${BROWSER}        Chrome
 ${DELAY}          0
 ${LOGIN URL}      http://${SERVER}/
 ${TITLE}          CARTA v1.3
+
+
+${SERVER_STATUS_ICON}    xpath://*[@id="root"]/div/div[1]/span[6]/span/span
+
+${FILE_LIST}    xpath://*[@id="root"]/div/div[3]/div[1]/div/div[2]/div/div[3]/div/div[1]/table
+${QA_FOLDER}    xpath://*[contains(text(), "set_QA_e2e")]
+${FILE_INFO_TAB}    xpath://*[@id="root"]/div/div[3]/div[1]/div/div[2]/div/div[3]/div/div[2]/div/pre
+${CURSOR_INFO_OVERLAY}    xpath://*[@id="root"]/div/div[10]/div[2]/div/div[1]/div[1]/div[2]/div/div/div/div[3]
+${RASTER_CANVAS}    xpath://*[@id="raster-canvas"]
+${LOAD_IMAGE_BUTTON}    xpath://*[contains(text(), "Load")]
+
 
 ${BASE_IMAGE_FOLDER}    xpath://*[contains(text(), "carta_image_pool")]
 ${LARGE_TEST_IMAGE}    xpath://*[contains(text(), "h_m51_b_s05_drz_sci.fits")]
@@ -21,7 +32,7 @@ ${LOAD_IMAGE_BUTTON}    xpath://*[contains(text(), "Load")]
 ${PROGRESS_CLOUD}    xpath://*[@id="root"]/div/div[1]/span[5]/span/span
 
 *** Keywords ***
-Open Browser To Login Page
+Open Browser To CARTA
     Open Browser    ${LOGIN URL}    ${BROWSER}
     Maximize Browser Window
     Reload Page
