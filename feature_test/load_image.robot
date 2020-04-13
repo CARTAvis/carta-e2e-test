@@ -7,7 +7,7 @@ Resource          resource.robot
 
 *** Test Cases ***
 Load Image
-    [Setup]    Open Browser To Login Page
+    [Setup]    Open Browser To CARTA
     Sleep     1
     Run psrecord
     Load Image

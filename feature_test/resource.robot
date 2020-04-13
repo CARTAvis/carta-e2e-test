@@ -25,6 +25,7 @@ ${RASTER_CANVAS}    xpath://*[@id="raster-canvas"]
 ${LOAD_IMAGE_BUTTON}    xpath://*[contains(text(), "Load")]
 ${CLOSE_FILE_BROWSER_BUTTON}    xpath://*[contains(text(), "Close")]
 
+# widget bar
 ${REGION_LIST_WIDGET_BUTTON}    xpath://*[@id="regionListButton"]
 ${LOG_WIDGET_BUTTON}    xpath://*[@id="logButton"]
 ${SPATIAL_PROFILER_WIDGET_BUTTON}    xpath://*[@id="spatialProfilerButton"]
@@ -36,11 +37,13 @@ ${RENDER_CONFIG_WIDGET_BUTTON}    xpath://*[@id="renderConfigButton"]
 ${STOKES_ANALYSIS_WIDGET_BUTTON}    xpath://*[@id="stokesAnalysisButton"]
 ${LAYER_LIST_WIDGET_BUTTON}    xpath://*[@id="layerListButton"]   
 
+# dialog bar
 ${FILE_INFO_DIALOG_BUTTON}    xpath://*[@id="root"]/div/div[1]/div[2]/span[1]/span/button
 ${PREFERENCE_DIALOG_BUTTON}    xpath://*[@id="root"]/div/div[1]/div[2]/span[2]/span/button
 ${OVERLAY_SETTINGS_DIALOG_BUTTON}    xpath://*[@id="root"]/div/div[1]/div[2]/span[3]/span/button
 ${CONTOUR_DIALOG_BUTTON}    xpath://*[@id="root"]/div/div[1]/div[2]/span[4]/span/button
 
+# menu bar
 ${FILE_MENU}    xpath://*[@id="root"]/div/div[1]/span[1]/span/ul/li/a
 ${FILE_MENU_OPEN_IMAGE}    xpath://*[contains(text(), "Open image")]
 ${FILE_MENU_APPEND_IMAGE}    xpath://*[contains(text(), "Append image")]
@@ -75,6 +78,11 @@ ${LAYOUT_MENU_INFOPANELS_PROGRAMLOG}    xpath://*[contains(text(), "Program Log"
 ${LAYOUT_MENU_PROFILES}    xpath://*[contains(text(), "Profiles")]
 ${LAYOUT_MENU_PROFILES_SPATIALPROFILER}    xpath://*[contains(text(), "Spatial Profiler")]
 ${LAYOUT_MENU_PROFILES_SPECTRALPROFILER}    xpath://*[contains(text(), "Spectral Profiler")]
+${LAYOUT_MENU_STATISTICS}    xpath://*[contains(text(), "Statistics")]
+${LAYOUT_MENU_HISTOGRAM}    xpath://*[contains(text(), "Histogram")]
+${LAYOUT_MENU_ANIMATOR}    xpath://*[contains(text(), "Animator")]
+${LAYOUT_MENU_RENDERCONFIG}    xpath://*[contains(text(), "Render Config")]
+${LAYOUT_MENU_STOKESANALYSIS}    xpath://*[contains(text(), "Stokes Analysis")]
 
 ${HELP_MENU}    xpath://*[@id="root"]/div/div[1]/span[4]/span/ul/li/a
 ${HELP_MENU_ONLINEMANUAL}    xpath://*[contains(text(), "Online Manual")]
@@ -82,18 +90,7 @@ ${HELP_MENU_CONTROLSANDSHORTCUTS}    xpath://*[contains(text(), "Controls and Sh
 ${HELP_MENU_ABOUT}    xpath://*[contains(text(), "About")]
 
 
-
-
-${LAYOUT_MENU_STATISTICS}    xpath://*[contains(text(), "Statistics")]
-${LAYOUT_MENU_HISTOGRAM}    xpath://*[contains(text(), "Histogram")]
-${LAYOUT_MENU_ANIMATOR}    xpath://*[contains(text(), "Animator")]
-${LAYOUT_MENU_RENDERCONFIG}    xpath://*[contains(text(), "Render Config")]
-${LAYOUT_MENU_STOKESANALYSIS}    xpath://*[contains(text(), "Stokes Analysis")]
-
-
-
-
-
+# old...
 ${BASE_IMAGE_FOLDER}    xpath://*[contains(text(), "carta_image_pool")]
 ${LARGE_TEST_IMAGE}    xpath://*[contains(text(), "h_m51_b_s05_drz_sci.fits")]
 ${FILE_INFO}    xpath://*[@id="root"]/div/div[3]/div[1]/div/div[2]/div/div[3]/div/div[2]/div/pre
