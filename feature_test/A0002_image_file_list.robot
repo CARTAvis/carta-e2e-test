@@ -38,6 +38,15 @@ Backend Image File Filter
     Table Cell Should Contain    ${FILE_LIST}    12    2    M17_SWex.miriad
     Table Cell Should Contain    ${FILE_LIST}    12    3    Miriad
     Table Cell Should Contain    ${FILE_LIST}    12    4    53.0 MB
+    Table Cell Should Contain    ${FILE_LIST}    15    2    spire500_ext.fits: HDU 1 ExtName: image
+    Table Cell Should Contain    ${FILE_LIST}    15    3    FITS
+    Table Cell Should Contain    ${FILE_LIST}    15    4    17.6 MB
+    Table Cell Should Contain    ${FILE_LIST}    16    2    spire500_ext.fits: HDU 6 ExtName: error
+    Table Cell Should Contain    ${FILE_LIST}    16    3    FITS
+    Table Cell Should Contain    ${FILE_LIST}    16    4    17.6 MB
+    Table Cell Should Contain    ${FILE_LIST}    17    2    spire500_ext.fits: HDU 7 ExtName: coverage
+    Table Cell Should Contain    ${FILE_LIST}    17    3    FITS
+    Table Cell Should Contain    ${FILE_LIST}    17    4    17.6 MB        
     Page Should Not Contain Element    xpath://*[contains(text(), "empty.txt")]
     Page Should Not Contain Element    xpath://*[contains(text(), "empty2.fits")]
     Page Should Not Contain Element    xpath://*[contains(text(), "empty2.hdf5")]
@@ -47,26 +56,31 @@ Backend Image File Filter
     # add tests for region files, those should not be present in the list 
     # add tests for catalogue files, those should not be present in the list
     
+    Scroll Element Into View    xpath://*[contains(text(), "empty.fits")]
     Click Element    xpath://*[contains(text(), "empty.fits")]
     Wait Until Page Contains    No file selected.
     Page Should Not Contain Element    xpath://*[contains(text(), "M17_SWex.fits")]
     Click Element    xpath://*[contains(text(), "set_QA_e2e")]
     Wait Until Page Contains    No file selected.
+    Scroll Element Into View    xpath://*[contains(text(), "empty.hdf5")]
     Click Element    xpath://*[contains(text(), "empty.hdf5")]
     Wait Until Page Contains    No file selected.
     Page Should Not Contain Element    xpath://*[contains(text(), "M17_SWex.fits")]
     Click Element    xpath://*[contains(text(), "set_QA_e2e")]
     Wait Until Page Contains    No file selected.
+    Scroll Element Into View    xpath://*[contains(text(), "empty.image")]
     Click Element    xpath://*[contains(text(), "empty.image")]
     Wait Until Page Contains    No file selected.
     Page Should Not Contain Element    xpath://*[contains(text(), "M17_SWex.fits")]
     Click Element    xpath://*[contains(text(), "set_QA_e2e")]
     Wait Until Page Contains    No file selected.
+    Scroll Element Into View    xpath://*[contains(text(), "empty.miriad")]
     Click Element    xpath://*[contains(text(), "empty.miriad")]
     Wait Until Page Contains    No file selected.
     Page Should Not Contain Element    xpath://*[contains(text(), "M17_SWex.fits")]
     Click Element    xpath://*[contains(text(), "set_QA_e2e")]
     Wait Until Page Contains    No file selected.
+    Scroll Element Into View    xpath://*[contains(text(), "empty_folder")]
     Click Element    xpath://*[contains(text(), "empty_folder")]
     Wait Until Page Contains    No file selected.
     Page Should Not Contain Element    xpath://*[contains(text(), "M17_SWex.fits")]
