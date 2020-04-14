@@ -114,7 +114,14 @@ Load Image
     Click Element    ${LOAD_IMAGE_BUTTON}
     Wait Until Element Is Visible    ${PROGRESS_CLOUD}    timeout=10
     Wait Until Element Is Not Visible    ${PROGRESS_CLOUD}    timeout=10
-    
+
+
+Go To E2E QA Folder
+    Wait Until Page Contains    No file selected.
+    Table Should Contain    ${FILE_LIST}    set_QA_e2e
+    Scroll Element Into View    ${QA_FOLDER}
+    Click Element    ${QA_FOLDER}
+    Wait Until Page Contains    No file selected.
 
 Run psrecord
     Start Process    psrecord $(pgrep carta_backend) --interval 0.05 --plot psrecord_output.png    shell=yes    alias=psrecord
