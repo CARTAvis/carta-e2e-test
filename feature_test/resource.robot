@@ -8,7 +8,7 @@ Library           SeleniumLibrary
 Library           Process
 
 *** Variables ***
-${SERVER}         octopus.local:2000/?socketUrl=ws://octopus.local:3000
+${SERVER}         octopus:2000/?socketUrl=ws://octopus:3000
 ${BROWSER}        Chrome
 ${DELAY}          0
 ${LOGIN URL}      http://${SERVER}/
