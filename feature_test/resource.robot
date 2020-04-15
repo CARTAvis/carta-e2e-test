@@ -14,7 +14,8 @@ ${BROWSER}        Chrome
 ${DELAY}          0
 ${LOGIN URL}      http://${SERVER}/
 ${TITLE}          CARTA v1.3
-
+${WINDOW_SIZE_X}    1280
+${WINDOW_SIZE_Y}    800
 
 ${SERVER_STATUS_ICON}    xpath://*[@id="root"]/div/div[1]/span[6]/span/span
 
@@ -104,7 +105,8 @@ ${PROGRESS_CLOUD}    xpath://*[@id="root"]/div/div[1]/span[5]/span/span
 *** Keywords ***
 Open Browser To CARTA
     Open Browser    ${LOGIN URL}    ${BROWSER}
-    Maximize Browser Window
+    #Maximize Browser Window
+    Set Window Size    ${WINDOW_SIZE_X}    ${WINDOW_SIZE_Y}
     Reload Page
     Set Selenium Speed    ${DELAY}
     Title Should Be    ${TITLE}

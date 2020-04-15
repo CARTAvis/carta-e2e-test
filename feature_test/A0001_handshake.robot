@@ -23,7 +23,7 @@ Frontend Backend Handshake
     Click Element    ${LOAD_IMAGE_BUTTON}
     Wait Until Element Is Not Visible    ${PROGRESS_CLOUD}    timeout=10    
     Mouse Over    ${RASTER_CANVAS}
-    Element Should Contain    ${CURSOR_INFO_OVERLAY}    320, 400
+    Element Should Contain    ${CURSOR_INFO_OVERLAY}    319, 400
     Mouse Out    ${RASTER_CANVAS}
     Sleep    1
     Capture Element Screenshot    ${IMAGE_VIEWER_CONTAINER}    before.png
