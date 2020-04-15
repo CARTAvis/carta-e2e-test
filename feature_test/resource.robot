@@ -6,6 +6,7 @@ Documentation     A resource file with reusable keywords and variables.
 ...               by the imported SeleniumLibrary.
 Library           SeleniumLibrary
 Library           Process
+Library           OperatingSystem
 
 *** Variables ***
 ${SERVER}         octopus:2000/?socketUrl=ws://octopus:3000
@@ -22,6 +23,9 @@ ${QA_FOLDER}    xpath://*[contains(text(), "set_QA_e2e")]
 ${FILE_INFO_TAB}    xpath://*[@id="root"]/div/div[3]/div[1]/div/div[2]/div/div[3]/div/div[2]/div/pre
 ${CURSOR_INFO_OVERLAY}    xpath://*[@id="root"]/div/div[10]/div[2]/div/div[1]/div[1]/div[2]/div/div/div/div[3]
 ${RASTER_CANVAS}    xpath://*[@id="raster-canvas"]
+${IMAGE_VIEWER_CONTAINER}    xpath://*[@id="root"]/div/div[10]/div[2]/div/div[1]/div[1]/div[2]/div/div/div
+${IMAGE_VIEWER_RATIO_TAG}    xpath://*[@id="root"]/div/div[10]/div[2]/div/div[1]/div[1]/div[2]/div/div/div/div[7]
+
 ${LOAD_IMAGE_BUTTON}    xpath://*[contains(text(), "Load")]
 ${CLOSE_FILE_BROWSER_BUTTON}    xpath://*[contains(text(), "Close")]
 
@@ -104,6 +108,7 @@ Open Browser To CARTA
     Reload Page
     Set Selenium Speed    ${DELAY}
     Title Should Be    ${TITLE}
+    Wait Until Page Contains    No file selected.
 
 Load Image
     Click Element    ${BASE_IMAGE_FOLDER}
@@ -122,6 +127,7 @@ Go To E2E QA Folder
     Scroll Element Into View    ${QA_FOLDER}
     Click Element    ${QA_FOLDER}
     Wait Until Page Contains    No file selected.
+    Sleep    0.5
 
 Run psrecord
     Start Process    psrecord $(pgrep carta_backend) --interval 0.05 --plot psrecord_output.png    shell=yes    alias=psrecord
