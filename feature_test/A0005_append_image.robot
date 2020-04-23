@@ -69,9 +69,9 @@ Load And Append images
     Mouse Out    ${RASTER_CANVAS}
     Sleep    1
     Capture Element Screenshot    ${IMAGE_VIEWER_CONTAINER}    after_hdf5.png    
-    Compare Images    before_fits.png    after_fits.png    0.001
-    Compare Images    before_casa.png    after_casa.png    0.001
-    Compare Images    before_miriad.png    after_miriad.png    0.001
-    Compare Images    before_hdf5.png    after_hdf5.png    0.001
+    Compare Images    before_fits.png    after_fits.png    0.0009
+    Compare Images    before_casa.png    after_casa.png    0.0009
+    Compare Images    before_miriad.png    after_miriad.png    0.0009
+    Compare Images    before_hdf5.png    after_hdf5.png    0.0009
     Sleep    1    
     [Teardown]    Close Browser
