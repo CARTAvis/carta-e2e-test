@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation     Load image files 
+Documentation     Load image files in close all and open mode
 ...
 ...               This test trys to load images into CARTA and check    
 ...               if images are loaded properly.
@@ -20,8 +20,7 @@ Load FITS Image
     Capture Element Screenshot    ${IMAGE_VIEWER_CONTAINER}    before.png
     Click Element    xpath://*[contains(text(), "90%")]
     Capture Element Screenshot    ${IMAGE_VIEWER_CONTAINER}    after.png
-    ${result}=    Run    diff -s before.png after.png
-    Should Contain      ${result}    differ
+    Compare Images    before.png    after.png    0.073
     Remove Files    before.png    after.png
     [Teardown]    Close Browser
 
@@ -39,8 +38,7 @@ Load CASA Image
     Capture Element Screenshot    ${IMAGE_VIEWER_CONTAINER}    before.png
     Click Element    xpath://*[contains(text(), "90%")]
     Capture Element Screenshot    ${IMAGE_VIEWER_CONTAINER}    after.png
-    ${result}=    Run    diff -s before.png after.png
-    Should Contain      ${result}    differ
+    Compare Images    before.png    after.png    0.073
     Remove Files    before.png    after.png
     [Teardown]    Close Browser
 
@@ -58,8 +56,7 @@ Load MIRIAD Image
     Capture Element Screenshot    ${IMAGE_VIEWER_CONTAINER}    before.png
     Click Element    xpath://*[contains(text(), "90%")]
     Capture Element Screenshot    ${IMAGE_VIEWER_CONTAINER}    after.png
-    ${result}=    Run    diff -s before.png after.png
-    Should Contain      ${result}    differ
+    Compare Images    before.png    after.png    0.073
     Remove Files    before.png    after.png
     [Teardown]    Close Browser
 
@@ -78,8 +75,7 @@ Load HDF5 Image
     Capture Element Screenshot    ${IMAGE_VIEWER_CONTAINER}    before.png
     Click Element    xpath://*[contains(text(), "90%")]
     Capture Element Screenshot    ${IMAGE_VIEWER_CONTAINER}    after.png
-    ${result}=    Run    diff -s before.png after.png
-    Should Contain      ${result}    differ
+    Compare Images    before.png    after.png    0.073
     Remove Files    before.png    after.png
     [Teardown]    Close Browser
 
@@ -98,7 +94,6 @@ Load Large FITS Image
     Capture Element Screenshot    ${IMAGE_VIEWER_CONTAINER}    before.png
     Click Element    xpath://*[contains(text(), "90%")]
     Capture Element Screenshot    ${IMAGE_VIEWER_CONTAINER}    after.png
-    ${result}=    Run    diff -s before.png after.png
-    Should Contain      ${result}    differ
+    Compare Images    before.png    after.png    0.21
     Remove Files    before.png    after.png
     [Teardown]    Close Browser

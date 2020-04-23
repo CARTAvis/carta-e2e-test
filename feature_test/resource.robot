@@ -7,6 +7,7 @@ Documentation     A resource file with reusable keywords and variables.
 Library           SeleniumLibrary
 Library           Process
 Library           OperatingSystem
+Library           String
 
 *** Variables ***
 ${SERVER}         octopus:2000/?socketUrl=ws://octopus:3000
@@ -95,12 +96,23 @@ ${HELP_MENU_CONTROLSANDSHORTCUTS}    xpath://*[contains(text(), "Controls and Sh
 ${HELP_MENU_ABOUT}    xpath://*[contains(text(), "About")]
 
 
+
+# layer list widget
+${LAYER_LIST_WIDGET_TABLE}    xpath://*[@id="root"]/div/div[10]/div[2]/div/div[3]/div[5]/div[2]/div[1]/div/div/div[1]/div[1]/div[1]/div/div[2]
+
+
 # old...
 ${BASE_IMAGE_FOLDER}    xpath://*[contains(text(), "carta_image_pool")]
 ${LARGE_TEST_IMAGE}    xpath://*[contains(text(), "h_m51_b_s05_drz_sci.fits")]
 ${FILE_INFO}    xpath://*[@id="root"]/div/div[3]/div[1]/div/div[2]/div/div[3]/div/div[2]/div/pre
 ${LOAD_IMAGE_BUTTON}    xpath://*[contains(text(), "Load")]
 ${PROGRESS_CLOUD}    xpath://*[@id="root"]/div/div[1]/span[5]/span/span
+
+
+
+# image comparsion
+${IMAGE_COMPARATOR_COMMAND}   /opt/local/bin/convert __REFERENCE__ __TEST__ -metric RMSE -compare -format  "%[distortion]" info:
+
 
 *** Keywords ***
 Open Browser To CARTA
@@ -131,6 +143,13 @@ Go To E2E QA Folder
     Wait Until Page Contains    No file selected.
     Sleep    0.5
 
+
+Launch File Browser For Appending Image
+    Click Element    ${FILE_MENU}
+    Click Element    ${FILE_MENU_APPEND_IMAGE}
+    Wait Until Page Contains    No file selected.
+    Sleep    0.5
+
 Run psrecord
     Start Process    psrecord $(pgrep carta_backend) --interval 0.05 --plot psrecord_output.png    shell=yes    alias=psrecord
     Process Should Be Running    handle=psrecord
@@ -138,3 +157,16 @@ Run psrecord
     
 Terminate psrecord
     Send Signal To Process    SIGINT    handle=psrecord
+
+
+
+Compare Images
+   [Arguments]      ${Reference_Image_Path}    ${Test_Image_Path}    ${Allowed_Threshold}
+   ${TEMP}=         Replace String     ${IMAGE_COMPARATOR_COMMAND}    __REFERENCE__     ${Reference_Image_Path}
+   ${COMMAND}=      Replace String     ${TEMP}    __TEST__     ${Test_Image_Path}
+   Log              Executing: ${COMMAND}
+   ${RC}            ${OUTPUT}=     Run And Return Rc And Output     ${COMMAND}
+   Log              Return Code: ${RC}
+   Log              Return Output: ${OUTPUT}
+   ${RESULT}        Evaluate    ${OUTPUT} < ${Allowed_Threshold}
+   Should be True   ${RESULT}
