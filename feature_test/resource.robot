@@ -12,7 +12,7 @@ Library           String
 *** Variables ***
 ${SERVER}         octopus:2000/?socketUrl=ws://octopus:3000
 ${BROWSER}        Chrome
-${DELAY}          0.1
+${DELAY}          0.05
 ${LOGIN URL}      http://${SERVER}/
 ${TITLE}          CARTA v1.4
 ${WINDOW_SIZE_X}    1280
