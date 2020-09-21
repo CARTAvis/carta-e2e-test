@@ -12,6 +12,7 @@ UI Element Locators
     Sleep    1
     Click Element    ${CLOSE_FILE_BROWSER_BUTTON}
     
+    # check menu bar
     Mouse Over    ${FILE_MENU}
     Element Should Contain    ${FILE_MENU}    File
     Mouse Over    ${VIEW_MENU}
@@ -21,6 +22,7 @@ UI Element Locators
     Mouse Over    ${HELP_MENU}
     Element Should Contain    ${HELP_MENU}    Help
     
+    # check region bar
     Mouse Over    ${POINT_REGION_BUTTON}
     Page Should Contain    Point
     Mouse Over    ${RECTANGLE_REGION_BUTTON}
@@ -30,6 +32,7 @@ UI Element Locators
     Mouse Over    ${POLYGON_REGION_BUTTON}
     Page Should Contain    Polygon
 
+    # check widget bar
     Mouse Over    ${REGION_LIST_WIDGET_BUTTON}
     Page Should Contain    Region List Widget
     Mouse Over    ${LOG_WIDGET_BUTTON}
@@ -55,6 +58,7 @@ UI Element Locators
     Mouse Over    ${SPECTRAL_LINE_QUERY_BUTTON}
     Page Should Contain    Spectral Line Query Widget
 
+    # check dialog bar
     Mouse Over    ${FILE_HEADER_DIALOG_BUTTON}
     Page Should Contain    File Header
     Mouse Over    ${PREFERENCES_DIALOG_BUTTON} 
@@ -65,6 +69,7 @@ UI Element Locators
     Mouse Over    ${SERVER_STATUS_ICON}
     Page Should Contain    Connected to server
     
+    # check menus
     Click Element    ${FILE_MENU}
     Element Should Contain    ${FILE_MENU_OPEN_IMAGE}    Open image
     Element Should Contain    ${FILE_MENU_APPEND_IMAGE}    Append image
@@ -75,7 +80,6 @@ UI Element Locators
     Element Should Contain    ${FILE_MENU_IMPORT_CATALOG}    Import catalog
     Element Should Contain    ${FILE_MENU_EXPORT_IMAGE}    Export image
     Element Should Contain    ${FILE_MENU_PREFERENCES}    Preferences
-    
     Click Element    ${VIEW_MENU}
     Page Should Contain Element    ${VIEW_MENU_THEME}
     Mouse Over    ${VIEW_MENU_THEME}
@@ -94,7 +98,6 @@ UI Element Locators
     Page Should Contain    Continuum Analysis
     Page Should Contain Element    ${VIEW_MENU_FILEHEADER}
     Page Should Contain Element    ${VIEW_MENU_CONTOURS}
-
     Click Element    ${WIDGETS_MENU}
     Page Should Contain Element    ${WIDGETS_MENU_INFO_PANELS}
     Mouse Over    ${WIDGETS_MENU_INFO_PANELS}
@@ -112,13 +115,13 @@ UI Element Locators
     Page Should Contain Element    ${WIDGETS_MENU_STOKES_ANALYSIS}
     Page Should Contain Element    ${WIDGETS_MENU_CATALOG}
     Page Should Contain Element    ${WIDGETS_MENU_SPECTRAL_LINE_QUERY}
-
     Click Element    ${HELP_MENU}
     Page Should Contain Element    ${HELP_MENU_ONLINE_MANUAL}
     Page Should Contain Element    ${HELP_MENU_CONTROLS_AND_SHORTCUTS}
     Page Should Contain Element    ${HELP_MENU_DEBUG_EXECUTION}
     Page Should Contain Element    ${HELP_MENU_ABOUT}
 
+    # check components in the default layout
     Click Element    ${HELP_MENU}
     Page Should Contain Element    ${DEFAULT_LAYOUT_IMAGE_VIEWER}
     Page Should Contain Element    ${DEFAULT_LAYOUT_RENDER_CONFIG}
@@ -128,6 +131,7 @@ UI Element Locators
     Page Should Contain Element    ${DEFAULT_LAYOUT_ANIMATOR}
     Page Should Contain Element    ${DEFAULT_LAYOUT_REGION_LIST}
 
+    # launch widgets
     Click Element    ${REGION_LIST_WIDGET_BUTTON}
     Element Should Contain    //*[@id="root"]/div/div[12]/div/div[1]/div[1]/div[1]    Region List
     Click Element    ${LOG_WIDGET_BUTTON}
@@ -153,6 +157,7 @@ UI Element Locators
     Click Element    ${SPECTRAL_LINE_QUERY_BUTTON}
     Element Should Contain    //*[@id="root"]/div/div[12]/div[12]/div[1]/div[1]/div[1]    Spectral Line Query
     
+    # launch dialogs
     Click Element    ${FILE_HEADER_DIALOG_BUTTON}
     Element Should Contain    //*[@id="root"]/div/div[8]/div[1]/div/div[2]/div/div[1]    File Header
     Click Element    //*[@id="root"]/div/div[8]/div[1]/div/div[2]/div/div[1]/button
@@ -163,7 +168,7 @@ UI Element Locators
     Element Should Contain    //*[@id="root"]/div/div[7]/div[1]/div/div[2]/div/div[1]    Contour Configuration
     Click Element    //*[@id="root"]/div/div[7]/div[1]/div/div[2]/div/div[1]/button
 
-    # help menu
+    # check help menu and sub-menus
     Click Element    ${HELP_MENU}
     Click Element    ${HELP_MENU_CONTROLS_AND_SHORTCUTS}
     Element Should Contain    xpath:/html/body/div[30]/div/div[2]/div/div    Navigation
@@ -182,8 +187,5 @@ UI Element Locators
     Switch Window    NEW
     Wait Until Page Contains    CARTA user manual for v1.4
     Switch Window    MAIN
-
-
-
     Sleep    1
     [Teardown]    Close Browser
