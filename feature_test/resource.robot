@@ -103,7 +103,7 @@ ${LAYER_LIST_WIDGET_TABLE}    xpath://*[@id="root"]/div/div[10]/div[2]/div/div[3
 
 # old...
 ${BASE_IMAGE_FOLDER}    xpath://*[contains(text(), "carta_image_pool")]
-${LARGE_TEST_IMAGE}    xpath://*[contains(text(), "h_m51_b_s05_drz_sci.fits")]
+${LARGE_TEST_IMAGE}    xpath://*[contains(text(), "cluster_32768.fits")]
 ${FILE_INFO}    xpath://*[@id="root"]/div/div[3]/div[1]/div/div[2]/div/div[3]/div/div[2]/div/pre
 ${LOAD_IMAGE_BUTTON}    xpath://*[contains(text(), "Load")]
 ${PROGRESS_CLOUD}    xpath://*[@id="root"]/div/div[1]/span[5]/span/span
@@ -125,7 +125,7 @@ Open Browser To CARTA
     Wait Until Page Contains    No file selected.
 
 Load Image
-    Click Element    ${BASE_IMAGE_FOLDER}
+    Go To E2E QA Folder
     Wait Until Page Contains Element    ${LARGE_TEST_IMAGE}    timeout=2
     Click Element    ${LARGE_TEST_IMAGE}
     Wait Until Element Contains    ${FILE_INFO}    Name
@@ -133,7 +133,7 @@ Load Image
     Click Element    ${LOAD_IMAGE_BUTTON}
     Wait Until Element Is Visible    ${PROGRESS_CLOUD}    timeout=10
     Wait Until Element Is Not Visible    ${PROGRESS_CLOUD}    timeout=10
-
+    Sleep    1
 
 Go To E2E QA Folder
     Wait Until Page Contains    No file selected.
