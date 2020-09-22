@@ -21,13 +21,13 @@ ${WINDOW_SIZE_Y}    800
 ${SERVER_STATUS_ICON}    xpath://*[@id="root"]/div/div[1]/span[6]/span/span
 ${PROGRESS_CLOUD}    xpath://*[@id="root"]/div/div[1]/span[5]/span/span
 
-${FILE_LIST}    xpath://*[@id="root"]/div/div[3]/div[1]/div/div[2]/div/div[3]/div/div[1]/table
+${FILE_LIST}    //*[@id="root"]/div/div[2]/div[1]/div/div[2]/div/div[3]/div[1]/div[1]/div/div[1]/div[1]/div/div[2]/div/div/div
 ${QA_FOLDER}    xpath://*[contains(text(), "set_QA_e2e")]
-${FILE_INFO_TAB}    xpath://*[@id="root"]/div/div[3]/div[1]/div/div[2]/div/div[3]/div/div[2]/div/pre
-${CURSOR_INFO_OVERLAY}    xpath://*[@id="root"]/div/div[10]/div[2]/div/div[1]/div[1]/div[2]/div/div/div/div[3]
+${FILE_INFO_TAB}    xpath://*[@id="root"]/div/div[2]/div[1]/div/div[2]/div/div[3]/div[1]/div[2]/div/div[2]/div
+${CURSOR_INFO_OVERLAY}    xpath://*[@id="root"]/div/div[11]/div[2]/div/div[1]/div[1]/div[2]/div/div/div/div[3]
 ${RASTER_CANVAS}    xpath://*[@id="raster-canvas"]
-${IMAGE_VIEWER_CONTAINER}    xpath://*[@id="root"]/div/div[10]/div[2]/div/div[1]/div[1]/div[2]/div/div/div
-${IMAGE_VIEWER_RATIO_TAG}    xpath://*[@id="root"]/div/div[10]/div[2]/div/div[1]/div[1]/div[2]/div/div/div/div[7]
+${IMAGE_VIEWER_CONTAINER}    xpath://*[@id="root"]/div/div[11]/div[2]/div/div[1]/div[1]/div[2]/div/div/div
+${IMAGE_VIEWER_RATIO_TAG}    xpath://*[@id="root"]/div/div[11]/div[2]/div/div[1]/div[1]/div[2]/div/div/div/div[7]
 
 ${LOAD_IMAGE_BUTTON}    xpath://*[contains(text(), "Load")]
 ${CLOSE_FILE_BROWSER_BUTTON}    xpath://*[contains(text(), "Close")]
@@ -171,7 +171,7 @@ Terminate psrecord
 
 
 
-Compare Images
+Compare Images To Be Identical
    [Arguments]      ${Reference_Image_Path}    ${Test_Image_Path}    ${Allowed_Threshold}
    ${TEMP}=         Replace String     ${IMAGE_COMPARATOR_COMMAND}    __REFERENCE__     ${Reference_Image_Path}
    ${COMMAND}=      Replace String     ${TEMP}    __TEST__     ${Test_Image_Path}
@@ -180,4 +180,15 @@ Compare Images
    Log              Return Code: ${RC}
    Log              Return Output: ${OUTPUT}
    ${RESULT}        Evaluate    ${OUTPUT} < ${Allowed_Threshold}
+   Should be True   ${RESULT}
+
+Compare Images To Be Different
+   [Arguments]      ${Reference_Image_Path}    ${Test_Image_Path}    ${Allowed_Threshold}
+   ${TEMP}=         Replace String     ${IMAGE_COMPARATOR_COMMAND}    __REFERENCE__     ${Reference_Image_Path}
+   ${COMMAND}=      Replace String     ${TEMP}    __TEST__     ${Test_Image_Path}
+   Log              Executing: ${COMMAND}
+   ${RC}            ${OUTPUT}=     Run And Return Rc And Output     ${COMMAND}
+   Log              Return Code: ${RC}
+   Log              Return Output: ${OUTPUT}
+   ${RESULT}        Evaluate    ${OUTPUT} > ${Allowed_Threshold}
    Should be True   ${RESULT}

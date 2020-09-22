@@ -65,6 +65,8 @@ UI Element Locators
     Page Should Contain    Preferences
     Mouse Over    ${CONTOURS_DIALOG_BUTTON}
     Page Should Contain    Contours
+
+    # check status icons
     Element Should Not Be Visible    ${PROGRESS_CLOUD}
     Mouse Over    ${SERVER_STATUS_ICON}
     Page Should Contain    Connected to server
